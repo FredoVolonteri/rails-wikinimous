@@ -1,4 +1,15 @@
-<h1>Wikinimous Articles</h1>
+<div class="navbar navbar-default">
+
+  <h1>Wikinimous Articles</h1>
+  <div class="right">
+    <h3 class="new">
+       <%= link_to "New", new_article_path %>
+    </h3>
+  </div>
+
+</div>
+
+
 <% @articles.each do |article| %>
 <ul>
   <li>
@@ -7,9 +18,11 @@
   <h3>
     <%= link_to "Delete", article_path(article),
       method: :delete,
-      data: { confirm: "Are you sure?" } %>
-
+      data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
   </h3>
+    <div>
+     <%= link_to "Edit", edit_article_path(article), class: "btn btn-primary" %>
+    </div>
   </li>
 </ul>
 <% end %>
